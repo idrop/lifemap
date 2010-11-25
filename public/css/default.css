@@ -1,0 +1,99 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: arial;
+    font-size: 1em;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.grayer {
+    color: gray;
+}
+
+#map_canvas {
+    height: 100%;
+    width: 100%
+}
+
+.header {
+
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 10;
+    font-size: 4em;
+    letter-spacing: 6px;
+    color: #F6C;
+    margin: 0px;
+    text-shadow: gray 2px 2px 1px;
+    font-family: 'Yanone Kaffeesatz', arial, serif;
+}
+
+#msg {
+    left: 100px;
+    top: 100px;
+    z-index: 3;
+    position: absolute;
+    color: red;
+
+}
+
+.transparent {
+    filter: alpha(opacity = 90);
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+
+}
+
+#slider {
+    z-index: 1;
+    width: 100%;
+}
+
+#slider-date {
+    z-index: 2;
+    padding-bottom: 3px;
+    color: white;
+}
+
+.rounded {
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+}
+
+#slider-around {
+    position: absolute;
+    left: 70px;
+    right: 5px;
+    bottom: 18px;
+    background-color: #428D86;
+    z-index: 1;
+    padding: 20px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    display:none;
+}
+
+#intro, #profile, #login, #noevents {
+    color: white;
+    background-color: #999;
+    position: absolute;
+    padding: 10px;
+    right: 20px;
+    z-index: 5;
+    display:none;
+}
+
+
+.born {
+    color: cyan;
+}
