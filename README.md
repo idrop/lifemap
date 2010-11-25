@@ -1,32 +1,40 @@
-# lifemap
+LifeMap
+=======
 
 Lifemap lets you record your life events on a google map. It's a hobby project to try learn Clojure and jQuery.
 
 If you're interested in the Clojure side, start with src/lifemap/server.clj. For jQuery, see public/js/lifemap.js.
 
-## Installation
+Installation
+---------------
 
-# Install java, lein and mongoDB
-# Start mongoDB server with bin/mongod
-# git clone http://github.com/idrop/lifemap
-# cd lifemap
-# lein deps
-# lein repl
-# To start the server in the repl:
-   user=> user (use 'lifemap.server)
-   user=> (start) 
-# Browse to http://localhost:8888
-# Login with your facebook account and starting adding events to the map
+* Install java, lein and mongoDB
+* Start mongoDB server with bin/mongod
+* git clone https://idrop@github.com/idrop/lifemap.git
+* cd lifemap
+* lein deps
+* lein repl
+* To start the server in the repl:
+    <pre>
+     user=> user (use 'lifemap.server)
+     user=> (start) 
+   </pre>
+* Browse to http://localhost:8888
+* Login with your facebook account and starting adding events to the map
 
-## Usage
+Usage
+-------
 
 I usually run the project inside emacs, like:
-* M-x swank-clojure-project ;; choose project dir
-* (use 'lifemap.server)
-* (start)
+<pre>
+         M-x swank-clojure-project ;; choose project dir
+          (use 'lifemap.server)
+           (start)
+</pre>
 
 
-## TODO
+TODO
+----
 
 * Security!
 * Chrome in Ubuntu crash
