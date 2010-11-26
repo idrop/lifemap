@@ -16,7 +16,7 @@ Installation
 * lein repl
 * To start the server in the repl:
     <pre>
-     user=> user (use 'lifemap.server)
+     user=> (use 'lifemap.server)
      user=> (start) 
    </pre>
 * Browse to http://localhost:8888
