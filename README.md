@@ -8,8 +8,7 @@ If you're interested in the Clojure side, start with src/lifemap/server.clj. For
 Installation
 ---------------
 
-* Install java, [lein](https://github.com/technomancy/leiningen) and
-* [mongoDB](http://www.mongodb.org/)
+* Install java, [leiningen](https://github.com/technomancy/leiningen) and [mongoDB](http://www.mongodb.org/)
 * Start mongoDB server with bin/mongod
 * git clone https://idrop@github.com/idrop/lifemap.git
 * cd lifemap
