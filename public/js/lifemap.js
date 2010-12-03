@@ -115,11 +115,11 @@ function setPosition(posfn) {
       },
 
       function() {
-        posfn(0, 0)
+        posfn(20, -30)
       }
     )
   } else {
-    posfn(0, 0)
+    posfn(20, -30)
   }
 }
 
@@ -332,7 +332,7 @@ function markerClicked (marker, pos) {
           position: pos,
           content: lifemap.html
         })
-        
+        lifemap.infowindow.open(lifemap.map)
 
         google.maps.event.addListener(lifemap.infowindow, 'domready', function () {
           var date = new Date(marker.data.when)
@@ -350,7 +350,6 @@ function markerClicked (marker, pos) {
           }, 500)
 
         })
-        lifemap.infowindow.open(lifemap.map)
 
         $("#submit").click(function(ev) {
           ev.preventDefault()

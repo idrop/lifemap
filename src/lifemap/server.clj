@@ -8,19 +8,19 @@
    [lifemap.utils :as utils]
    [compojure.route :as route]))
 
+(comment
+  an event looks like this when it comes in as params
+  { "lng" "-0.13677564177418056" "lat" "51.311495428201916" "fbid" "642791293"
+    "when" "62985600000" "desc" "description" "tag" "some tag"})
 
 (defn- respond
   "given a list of events, sanitizes each event, jsonizes it, then renders reponse"
   [coll request]
   (->>
    (utils/clean-response coll)
-   (utils/to-json)
-   (resp/render request)))
+   (utils/to-json ,,,)
+   (resp/render request ,,,)))
 
-
-;; an event looks like this when it comes in as params
-;; { "lng" "-0.13677564177418056" "lat" "51.311495428201916" "fbid" "642791293"
-;;    "when" "62985600000" "desc" "description" "tag" "some tag"}
 
 (defroutes main-routes
 
@@ -64,7 +64,9 @@
   (route/not-found "Not found."))
 
 
-(defn start []
+(defn start
+  "start jetty server"
+  []
   (run-jetty #'main-routes {:port 8888 :join? false}))
 
 
