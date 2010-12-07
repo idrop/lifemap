@@ -45,7 +45,11 @@ function initHeavies() {
       zoom: 5,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
-      navigationControl: false,
+      navigationControl: true,
+      navigationControlOptions: {
+        position: google.maps.ControlPosition.LEFT_TOP,
+        style: google.maps.NavigationControlStyle.SMALL
+      },
       streetViewControl: false
     })
 

@@ -7,5 +7,5 @@
                  [ring/ring-jetty-adapter "0.2.6"]
                  [swank-clojure "1.2.0"]
                  [congomongo "0.1.3-SNAPSHOT"]
-                 ]
-  )
+                 [clj-http "0.1.1"] 
+                 ])

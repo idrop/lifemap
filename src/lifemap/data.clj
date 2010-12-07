@@ -2,22 +2,22 @@
   (:require
    [somnium.congomongo :as cm]))
 
-(def m-coll :events)
+(def events-collection :events)
 
 ;; init db
 (cm/mongo! :db "lifemap")
 
 ;; index 
-(cm/add-index! m-coll [:fbid])
+(cm/add-index! events-collection [:fbid])
 
 (defn all
   "list of events matching fbid"
   [fbid]
-  (cm/fetch m-coll :where {:fbid fbid} ))
+  (cm/fetch events-collection :where {:fbid fbid} ))
 
 
 (defn- insert [m]
-  (cm/insert! m-coll (assoc m "created" (System/currentTimeMillis))))
+  (cm/insert! events-collection (assoc m "created" (System/currentTimeMillis))))
 
 
 (defn add
@@ -25,7 +25,7 @@
   [m]
   (->>
    (assoc m :created (System/currentTimeMillis))
-   (cm/insert! m-coll)
+   (cm/insert! events-collection)
    (list)))
 
 
@@ -35,16 +35,14 @@
   (let [
         tomerge (select-keys m [:tag :desc :when])
         id (cm/object-id (:id m))
-        record (cm/fetch-by-id m-coll id)
+        record (cm/fetch-by-id events-collection id)
         ]
-    (prn (str "to merge " tomerge))
-    (prn (str "into record " record))
-    (cm/update! m-coll record (merge record tomerge))
-    (list (cm/fetch-by-id m-coll id))))
+    (cm/update! events-collection record (merge record tomerge))
+    (list (cm/fetch-by-id events-collection id))))
 
 
 (defn delete [id]
-  (let [fbid (:fbid (cm/fetch-by-id m-coll (cm/object-id id)))]
-    (cm/destroy! m-coll {:_id (cm/object-id id)})
+  (let [fbid (:fbid (cm/fetch-by-id events-collection (cm/object-id id)))]
+    (cm/destroy! events-collection {:_id (cm/object-id id)})
     (all fbid)))
 

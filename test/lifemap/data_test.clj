@@ -7,10 +7,10 @@
 
 
 ;; for each test, bind the mongo collection name to :eventstest
-;; this means we write to a test collection in our tests
+;; this means we write to a mongo test collection during tests
 ;; see (def m-coll ...) in data.clj
 (defn for-each-test [f]
-  (binding [data/m-coll :eventstest]
+  (binding [data/events-collection :eventstest]
     (f)))
 
 

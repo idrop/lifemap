@@ -1,12 +1,12 @@
 (ns lifemap.server
-  (:use
-   ring.adapter.jetty 
-   compojure.core
-   ring.util.response
-   [compojure.response :as resp]
-   [lifemap.data :as data]
+  (:require
    [lifemap.utils :as utils]
-   [compojure.route :as route]))
+   [lifemap.data :as data]
+   [compojure.response :as resp]
+   [compojure.route :as route])
+  (:use
+   compojure.core
+   ring.adapter.jetty))
 
 (comment
   an event looks like this when it comes in as params
@@ -22,11 +22,12 @@
    (resp/render request ,,,)))
 
 
+;; ring handler function in which route functions are defined
 (defroutes main-routes
 
 
   (POST "/add" {params :params request :request}
-        (let [event ((comp translate keywordize) params)]
+        (let [event ((comp utils/translate utils/keywordize) params)]
           (if (utils/valid? event)
             (->
              (dissoc event :id)
@@ -35,7 +36,7 @@
 
   
   (POST "/update" {params :params request :request}
-        (let [event ((comp translate keywordize) params)]
+        (let [event ((comp utils/translate utils/keywordize) params)]
           (if (utils/valid? event)
             (respond (data/update event) request))))
 
